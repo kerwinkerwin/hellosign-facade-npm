@@ -1,0 +1,21 @@
+{
+  "name": "@eda/hellosign-facade",
+  "version": "0.1.0",
+  "description": "Facade for hellosign",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "gitlab.com/eda/hellosign-facade.git"
+  },
+  "keywords": [
+    "Hellosign"
+  ],
+  "author": "Kerwin O'Malley",
+  "license": "MIT",
+  "dependencies": {
+    "unirest": "^0.4.2"
+  }
+}
