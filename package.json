@@ -4,7 +4,7 @@
   "description": "Facade for hellosign",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,15 @@
   "license": "MIT",
   "dependencies": {
     "hellosign-sdk": "~1.1.0",
-    "unirest": "^0.4.2"
+    "unirest": "^0.4.2",
+    "dotenv": "^1.2.0"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "dotenv": "^1.2.0",
+    "hellosign-sdk": "^1.1.0",
+    "mocha": "*",
+    "request": "^2.61.0",
+    "sinon": "^1.16.1"
   }
 }

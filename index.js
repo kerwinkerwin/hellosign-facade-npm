@@ -50,16 +50,14 @@ var signTemplate = function signTemplate(type,student, callback){
     }
   };
 
-  if(type==="terms"){
-    options = tcOptions;
-  }else{
+  if(type==="welcome"){
     options = {
       test_mode:1,
       template_id: '88c75960985757d22be9e7c3497e98d6a17ca4e6',
       signers:[
         {
-          email_address: student.email,
-          name: student.name,
+          email_address: student.emailAddress,
+          name: student.firstName + student.lastName,
           role: 'Student'
         }
       ],
@@ -71,15 +69,16 @@ var signTemplate = function signTemplate(type,student, callback){
         "Grad_start":student.cohort.dates.Graduation,
         "Careers":student.cohort.dates.Careers,
       }
-  };
-
-  hellosign.signatureRequest.sendWithTemplate(options)
-    .then(function(response){
-      callback(null,response);
-    })
-    .catch(function(err){
-      callback(err, null);
-    });
-}
+    };
+  }else{
+    options = tcOptions;
+    hellosign.signatureRequest.sendWithTemplate(options)
+      .then(function(response){
+        callback(null,response);
+      })
+      .catch(function(err){
+        callback(err, null);
+      });
+  }
 };
 module.exports = initialize;
