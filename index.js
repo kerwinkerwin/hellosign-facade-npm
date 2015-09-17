@@ -31,8 +31,8 @@ var getTemplateList = function getTemplateList(callback){
     });
 };
 
-var signTemplate = function signTemplate(type,student, callback){
-  var options;
+var signTemplate = function signTemplate(student, callback){
+  // var options;
   var tcOptions = {
     test_mode:1,
     template_id: 'aa67d4e8143421720fba63b326656e63aff924eb',
@@ -49,36 +49,36 @@ var signTemplate = function signTemplate(type,student, callback){
       "Student Name": student.name
     }
   };
-
-  if(type==="welcome"){
-    options = {
-      test_mode:1,
-      template_id: '88c75960985757d22be9e7c3497e98d6a17ca4e6',
-      signers:[
-        {
-          email_address: student.emailAddress,
-          name: student.firstName + student.lastName,
-          role: 'Student'
-        }
-      ],
-      custom_fields: {
-        "Student": student.name,
-        "Cohort": student.cohort.name,
-        "P0_Date": student.cohort.dates.P0,
-        "BC_start":student.cohort.dates.Bootcamp,
-        "Grad_start":student.cohort.dates.Graduation,
-        "Careers":student.cohort.dates.Careers,
-      }
-    };
-  }else{
-    options = tcOptions;
-    hellosign.signatureRequest.sendWithTemplate(options)
+  //
+  // if(type==="welcome"){
+  //   options = {
+  //     test_mode:1,
+  //     template_id: '88c75960985757d22be9e7c3497e98d6a17ca4e6',
+  //     signers:[
+  //       {
+  //         email_address: student.emailAddress,
+  //         name: student.firstName + student.lastName,
+  //         role: 'Student'
+  //       }
+  //     ],
+  //     custom_fields: {
+  //       "Student": student.name,
+  //       "Cohort": student.cohort.name,
+  //       "P0_Date": student.cohort.dates.P0,
+  //       "BC_start":student.cohort.dates.Bootcamp,
+  //       "Grad_start":student.cohort.dates.Graduation,
+  //       "Careers":student.cohort.dates.Careers,
+  //     }
+  //   };
+  // }else{
+    // options = tcOptions;
+    hellosign.signatureRequest.sendWithTemplate(tcOptions)
       .then(function(response){
-        callback(null,response);
+        callback(response);
       })
       .catch(function(err){
-        callback(err, null);
+        callback(err);
       });
-  }
+  // }
 };
 module.exports = initialize;
