@@ -32,7 +32,6 @@ var getTemplateList = function getTemplateList(callback){
 };
 
 var signTemplate = function signTemplate(student, callback){
-  // var options;
   var tcOptions = {
     test_mode:1,
     template_id: 'aa67d4e8143421720fba63b326656e63aff924eb',
