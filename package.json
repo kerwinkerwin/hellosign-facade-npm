@@ -1,6 +1,6 @@
 {
   "name": "@eda/hellosign-facade",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Facade for hellosign",
   "main": "index.js",
   "scripts": {
